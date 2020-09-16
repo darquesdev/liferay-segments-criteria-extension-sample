@@ -1,0 +1,28 @@
+buildscript {
+	dependencies {
+		classpath group: "com.liferay", name: "com.liferay.gradle.plugins", version: "11.0.46"
+	}
+
+	repositories {
+		maven {
+			url "https://repository-cdn.liferay.com/nexus/content/groups/public"
+		}
+	}
+}
+
+apply plugin: "com.liferay.plugin"
+
+dependencies {
+	compile group: "com.liferay.portal", name: "release.portal.api", version: "7.3.4-ga5"
+}
+
+liferay {
+	liferayHome = "$System.env.LIFERAY_HOME"
+	deployDir = file("${liferayHome}/deploy")
+}
+
+repositories {
+	maven {
+		url "https://repository-cdn.liferay.com/nexus/content/groups/public"
+	}
+}
